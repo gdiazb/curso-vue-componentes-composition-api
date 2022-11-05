@@ -1,7 +1,10 @@
 <template>
   <div>
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <component
+      :is="myComponent"
+      :msg="'Probando el nuevo componente de Geraldine'"
+    ></component>
   </div>
 </template>
 
@@ -12,6 +15,11 @@ export default {
   name: "App",
   components: {
     HelloWorld,
+  },
+  data() {
+    return {
+      myComponent: "HelloWorld",
+    };
   },
 };
 </script>
