@@ -6,7 +6,11 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import { defineAsyncComponent } from "vue";
+
+const HelloWorld = defineAsyncComponent(() =>
+  import("./components/HelloWorld.vue")
+);
 
 export default {
   name: "App",
