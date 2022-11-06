@@ -1,0 +1,32 @@
+
+.container-modal {
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0%; right: 0; bottom: 0; left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+  .modal {
+    display: block;
+    width: 90%;
+    max-width: 400px;
+    z-index: 1;
+    background-color: #fff;
+    padding: 30px 30px 40px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .modal__title {
+    margin: 0;
+    padding: 0 10px 16px;
+    border-bottom: 1px solid #cfcfcf;
+  }
+
+  .modal__btn {
+    display: block;
+    margin: 0 0 0 auto;
+  }
