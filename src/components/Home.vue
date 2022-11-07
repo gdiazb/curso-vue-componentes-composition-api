@@ -1,26 +1,29 @@
 <template>
-  <div>Hola {{ text }} contador: {{ objeto }}</div>
+  <div>
+    <div>Hola {{ text }}</div>
+    <p>Nombre: {{ firstName }}</p>
+    <p>Apellido: {{ lastName }}</p>
+    <p>Nombre completo: {{ fullName }}</p>
+  </div>
 </template>
 
 <script>
-import { ref, reactive, watch } from "vue";
+import { ref, computed } from "vue";
 export default {
   setup() {
     const text = ref("gerli");
-    // setInterval(() => counter.value++, 500);
-    const objeto = reactive({ contador: 0 });
+    const firstName = ref("Geraldine");
+    const lastName = ref("Díaz Barrr");
 
-    setInterval(() => objeto.contador++, 500);
-
-    //watch
-    watch(objeto, (valor, anterior) => {
-      console.log("valor:", valor);
-      console.log("anterior:", anterior);
+    const fullName = computed(() => {
+      return `${firstName.value} ${lastName.value}`;
     });
 
     return {
       text,
-      objeto,
+      firstName,
+      lastName,
+      fullName,
     };
   },
 };
