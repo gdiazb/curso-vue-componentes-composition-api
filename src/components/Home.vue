@@ -14,7 +14,7 @@ export default {
     firstName: String,
     lastName: String,
   },
-  setup(props) {
+  setup(props, context) {
     const { firstName, lastName } = toRefs(props);
 
     const text = ref("gerli");
@@ -22,6 +22,8 @@ export default {
     const fullName = computed(() => {
       return `${firstName.value} ${lastName.value}`;
     });
+
+    console.log("context", context);
 
     return {
       text,
