@@ -9,38 +9,29 @@
   </div>
 </template>
 
-<script>
-import { ref, computed, toRefs, inject, watch } from "vue";
-export default {
-  props: {
-    firstName: String,
-    lastName: String,
-  },
-  setup(props, context) {
-    const { firstName, lastName } = toRefs(props);
+<script setup>
+import { defineProps, ref, computed, toRefs, inject, watch } from "vue";
 
-    const text = ref("gerli");
+const props = defineProps({
+  firstName: String,
+  lastName: String,
+});
 
-    const fullName = computed(() => {
-      return `${firstName.value} ${lastName.value}`;
-    });
+const { firstName, lastName } = toRefs(props);
 
-    const username = ref(inject("userName"));
+const text = ref("gerli");
 
-    console.log("context", context);
+const fullName = computed(() => {
+  return `${firstName.value} ${lastName.value}`;
+});
 
-    const btnHome = ref(null);
+const username = ref(inject("userName"));
 
-    watch(btnHome, (valor) => {
-      console.log(valor);
-    });
+// console.log("context", context);
 
-    return {
-      text,
-      fullName,
-      username,
-      btnHome,
-    };
-  },
-};
+const btnHome = ref(null);
+
+watch(btnHome, (valor) => {
+  console.log(valor);
+});
 </script>
