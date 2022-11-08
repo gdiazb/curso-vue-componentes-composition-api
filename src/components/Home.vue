@@ -5,11 +5,12 @@
     <p>Apellido: {{ lastName }}</p>
     <p>Nombre completo: {{ fullName }}</p>
     <p>Username: {{ username }}</p>
+    <button ref="btnHome">Click</button>
   </div>
 </template>
 
 <script>
-import { ref, computed, toRefs, inject } from "vue";
+import { ref, computed, toRefs, inject, watch } from "vue";
 export default {
   props: {
     firstName: String,
@@ -28,10 +29,17 @@ export default {
 
     console.log("context", context);
 
+    const btnHome = ref(null);
+
+    watch(btnHome, (valor) => {
+      console.log(valor);
+    });
+
     return {
       text,
       fullName,
       username,
+      btnHome,
     };
   },
 };
