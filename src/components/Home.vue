@@ -4,11 +4,12 @@
     <p>Nombre: {{ firstName }}</p>
     <p>Apellido: {{ lastName }}</p>
     <p>Nombre completo: {{ fullName }}</p>
+    <p>Username: {{ username }}</p>
   </div>
 </template>
 
 <script>
-import { ref, computed, toRefs } from "vue";
+import { ref, computed, toRefs, inject } from "vue";
 export default {
   props: {
     firstName: String,
@@ -23,11 +24,14 @@ export default {
       return `${firstName.value} ${lastName.value}`;
     });
 
+    const username = ref(inject("userName"));
+
     console.log("context", context);
 
     return {
       text,
       fullName,
+      username,
     };
   },
 };
